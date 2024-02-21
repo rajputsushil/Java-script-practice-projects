@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        .container{
+            width: 100%;
+            background-color:gray;
+            padding: 10px;
+        }
+        .slide_container{
+            width: 900px;
+            height: 600px;
+            border: 2px solid black;
+            margin: 50px auto;
+            position: relative;
+        }
+        .image_slider{
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+            margin: 30px auto;
+        }
+        .slide_container i{
+            color: white;
+            position: absolute;
+            font-size: 70px;
+            cursor: pointer;
+        }
+        #previous{
+            top: 40%;
+        }
+        #next{
+            top: 40%;
+            right: 0;
+        }
+        .slider{
+            display: flex;
+            transition: ease-in-out 0.5s;
+        }
+        .images{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="slide_container">
+        <i class="ri-arrow-left-wide-line" id="previous"></i>
+        <i class="ri-arrow-right-wide-line" id="next"></i>
+        <div class="image_slider">
+            <div class="slider">
+                <img src="darko-mitev-c5t_j1zlk1Y-unsplash.jpg" alt="" class="images">
+                <img src="dom-hill-nimElTcTNyY-unsplash.jpg" alt="" class="images">
+                <img src="Juria.jpg" alt="" class="images">
+                <img src="mahdi-chaghari-Wxf5A5EeRZM-unsplash.jpg" alt="" class="images">
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+<script>
+    let image_slider=document.querySelector('.image_slider');
+    let slider =document.querySelector('.slider');
+    let images =document.querySelectorAll('.images')
+    let Next=document.querySelector("#next")
+    let previous=document.querySelector("#previous")
+    slidecounter=1;
+    Next.addEventListener('click',()=>{
+        if(slidecounter <images.length){
+            slider.style.transform =`translateX(-${slidecounter*800}px)`;
+            slidecounter++;
+        }else{
+            
+            slider.style.transform =`translateX(-${0}px)`;
+            slidecounter =1;
+        }
+    })
+
+    previous.addEventListener('click',()=>{
+        if(slidecounter >1){
+            slider.style.transform=`translateX(-${(slidecounter-2)*800}px)`
+            slidecounter--;
+        }else{
+            slider.style.transform=`translatex(-${(images.length -1)*800}px)`
+            slidecounter =images.length
+        }
+    })
+</script>
+</html>

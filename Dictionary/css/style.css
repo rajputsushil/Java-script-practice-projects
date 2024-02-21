@@ -1,0 +1,67 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: blue;
+
+}
+.container{
+    background-color: white;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 80px 50px;
+    border-radius: 10px;
+    box-shadow: 0px 20px 40px rgb(61, 60, 60);
+}
+
+.search_box{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#input_field{
+    padding: 5px;
+    width: 70%;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid gray;
+}
+
+#btn{
+    padding: 15px 0;
+    width: 20%;
+    border: none;
+    outline: none;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+}
+.output{
+    font-size: 30px;
+    color: rgb(29, 27, 27);
+    margin-top: 50px;
+}
+.details{
+    display: flex;
+    gap: 10px;
+    color: rgb(150, 140, 140);
+    font-size: 15px;
+}
+.word_meaning{
+    color: rgb(150, 140, 140);
+    font-size: 20px;
+    margin: 20px 0;
+}
+.word_example{
+    color: rgb(150, 140, 140);
+    margin-left: 20px;
+    font-size: 20px;
+    border-left: 6px solid blue;
+    padding-left: 4px;
+}

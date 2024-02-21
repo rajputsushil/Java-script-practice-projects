@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Down</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.7)),url('event-birthday.jpg');
+            display: flex;
+            background-size:cover;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            text-align: center;
+        }
+        .display_heading{
+            color: white;
+            margin-top: 30px;
+        }
+        .display_heading h1{
+            margin: 20px;
+            font-size: 50px;
+        }
+        .display_heading h2{
+            margin: 0;
+            font-size: 30px;
+        }
+        .display_countdown{
+            margin-top: 30px;
+            color: white;
+            display: flex;
+            width: 80%;
+            /* border: 1px solid black; */
+            padding: 10px;
+            justify-content: space-around;
+        }
+        .count{
+            width: 10%;
+            margin-left: 2px;
+        }
+        .count input{
+            padding:5px;
+            width: 100%;
+            height: 150%;
+            display: block;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display_heading">
+            <h1>Count Down for My Birthday</h1>
+            <h2 id="DOB">26 Octobar 2024</h2>
+        </div>
+        <div class="display_countdown">
+            <div class="count">
+                <input type="text" readonly>
+                <label for="">Days</label>
+            </div>
+            <div class="count">
+                <input type="text" readonly>
+                <label for="">Hours</label>
+            </div>
+            <div class="count">
+                <input type="text" readonly>
+                <label for="">Minutes</label>
+            </div>
+            <div class="count">
+                <input type="text" readonly>
+                <label for="">Seconds</label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const Dob =document.querySelector("#DOB");
+        const Dateofbirth ='26 October 2024 2:00 AM';
+        Dob.innerHTML=Dateofbirth;
+        const input =document.querySelectorAll('input')
+        const timer =()=>{
+            const enddate =new Date(Dateofbirth);
+            const currentdate =new Date();
+            
+            const diff =(enddate-currentdate)/1000;
+            // console.log(diff)
+            input[0].value =Math.floor(diff/3600/24)
+            input[1].value =Math.floor(diff/3600) %24;
+            input[2].value =Math.floor(diff/60) %60;
+            input[3].value =Math.floor(diff) %60
+            
+        }
+       
+        setInterval(()=>{
+            timer()
+        },1000)
+    </script>
+</body>
+</html>
